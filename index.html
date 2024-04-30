@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detector de Camarón</title>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h1><span style="font-size: 48pt;">🦐<br></span>Detector de camarón</h1>
+    <p>Una de cada 3 personas son camarón sin saberlo.</p>
+    <h3>¿Eres un camarón?</h3>
+    <button id="detectar"><span id="txtbtn">🔍Detectar camarón</span></button>
+    <h1><span id="resultado"></span></h1>
+</body>
+<script>
+    let boton = document.getElementById('detectar')
+    let body = document.querySelector('body')
+    let resultado = document.getElementById('resultado')
+    let txtbtn = document.getElementById('txtbtn')
+
+    boton.addEventListener('click', function () {
+        body.style.cursor = "progress"
+        txtbtn.innerHTML = '🔍Detectando'
+        boton.disabled = true
+        resultado.innerHTML = ''
+        random()
+    })
+    function random() {
+        let x = Math.floor(Math.random() * 3)
+        setTimeout(() => {
+            if (x == 1) {
+                body.style.cursor = "auto"
+                txtbtn.innerHTML = 'Detectar camarón'
+                resultado.innerHTML = 'ERES UN CAMARÓN 🦐🦐🦐'
+                boton.disabled = false
+            } else {
+                body.style.cursor = "auto"
+                txtbtn.innerHTML = 'Detectar camarón'
+                resultado.innerHTML = 'no eres un camarón 🙅'
+                boton.disabled = false
+            }
+        }, 3000);
+    }
+</script>
+
+</html>
